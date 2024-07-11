@@ -1,0 +1,12 @@
+details = {} creates an empty dictionary called details to store the extracted form details.
+action = form.attrs.get("action").lower() retrieves the value of the "action" attribute from the form object and converts it to lowercase. The "action" attribute specifies the URL where the form data should be submitted.
+method = form.attrs.get("method", "get").lower() retrieves the value of the "method" attribute from the form object and converts it to lowercase. The "method" attribute specifies the HTTP method to be used for form submission. If the "method" attribute is not found, it defaults to "get".
+inputs = [] creates an empty list called inputs to store the input details.
+The code then iterates through each “input” tag found within the form object using form.find_all("input").
+Within the loop, input_type = input_tag.attrs.get("type", "text") retrieves the value of the "type" attribute from each input tag and assigns it to input_type. If the "type" attribute is not found, it defaults to "text".
+input_name = input_tag.attrs.get("name") retrieves the value of the "name" attribute from each input tag and assigns it to input_name.
+inputs.append({"type": input_type, "name": input_name}) creates a dictionary with keys "type" and "name" and appends it to the inputs list. This dictionary represents the details of each input field, including its type and name.
+Finally, the extracted form details are assigned to the details dictionary: details["action"] = action, details["method"] = method, details["inputs"] = inputs.
+The function then returns the details dictionary as the output.
+
+
